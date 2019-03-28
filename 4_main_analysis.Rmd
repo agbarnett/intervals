@@ -10,6 +10,8 @@ knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE, error=FALSE, c
 options(width=1000) # Wide pages
 options(scipen=999) # avoid scientific presentation
 # libraries
+library(extrafont) # for PLOS fonts (Times New Roman)
+loadfonts(device="postscript")
 library(stringr) 
 library(R2WinBUGS)
 library(dplyr)
@@ -331,6 +333,31 @@ bplot
 jpeg('figures/BothIntervalGWColour.jpg', width=4, height=4, units='in', res=400, quality=100)
 print(bplot)
 invisible(dev.off())
+# export plot as postscript (change font to Times)
+postscript('figures/Fig1.eps', width=4, height=4, horiz=FALSE, family='Times New Roman')
+print(bplot)
+invisible(dev.off())
+```
+
+## Non-cumulative density
+
+```{r plot.both.density.gw.same.panel}
+# split by CI type
+dplot = ggplot(both.intervals, aes(x=interval, col=factor(itype)))+
+  geom_vline(xintercept = 1, lty=1, col='black')+
+  geom_density(size=1.1, adjust=1/2)+
+  coord_cartesian(xlim=c(0.1, 10))+ # limit x-axis to focus on key change
+  scale_x_log10(breaks=c(0.1,0.5,1,2,10), labels=c(0.1,0.5,1,2,10))+
+  xlab('Ratio')+
+  ylab('Cumulative distribution')+
+  scale_color_manual('Interval', values=cbPalette[2:3])+
+  theme_bw()+
+  theme(panel.grid.minor = element_blank(), legend.position = c(0.2, 0.8))
+dplot
+# export plot
+jpeg('figures/DistBothIntervalGWColour.jpg', width=4, height=4, units='in', res=400, quality=100)
+print(dplot)
+invisible(dev.off())
 ```
 
 ## Intervals over time 
@@ -355,7 +382,7 @@ ylabels = paste(ylabels, ' (n = ', numbers, ')', sep='')
 to.plot = mutate(to.plot, five.yearc = factor(five.year, levels=1:6, labels=ylabels))
 # split by CI type
 lyplot = ggplot(to.plot, aes(x=interval, col=factor(itype)))+
-  geom_vline(xintercept = 1, lty=2, col='grey')+
+  geom_vline(xintercept = 1, lty=1, col='black')+
   stat_ecdf(geom = "step", size=1.1)+
   scale_x_log10(breaks=c(0.1,1,10), labels=c(0.1,1,10))+
   scale_color_manual('Interval', values=cbPalette[2:3])+
@@ -368,6 +395,10 @@ lyplot = ggplot(to.plot, aes(x=interval, col=factor(itype)))+
 lyplot
 # export plot
 jpeg('figures/IntervalsTimeGW.jpg', width=6.5, height=5, units='in', res=400, quality=100)
+print(lyplot)
+invisible(dev.off())
+# export for journal
+postscript('figures/Fig3.eps',  width=6.5, height=5, horiz=FALSE, family='Times New Roman')
 print(lyplot)
 invisible(dev.off())
 ```
@@ -459,11 +490,15 @@ uplot = ggplot(for.plot, aes(x=interval, col=itype))+
   xlab('Ratio')+
   ylab('Cumulative distribution')+
   theme_bw()+
-  theme(panel.grid.minor = element_blank(), legend.position = c(0.1,0.85))+
+  theme(panel.grid.minor = element_blank(), legend.position = c(0.1,0.82))+
   facet_wrap( ~ group.nice)
 uplot
 # export plot
-jpeg('figures/IntervalsSchuemie.jpg', width=5, height=4, units='in', res=400, quality=100)
+jpeg('figures/IntervalsSchuemie.jpg', width=5, height=3.5, units='in', res=400, quality=100)
+print(uplot)
+invisible(dev.off())
+# export for journal
+postscript('figures/Fig2.eps', width=5, height=3.5, horiz=FALSE, family='Times New Roman')
 print(uplot)
 invisible(dev.off())
 ```
