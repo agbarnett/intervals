@@ -1,0 +1,30 @@
+pubmed	journal	lower	mean	upper	ci.level	Year	source	mistake
+17492687	Cancer	1e-04	3122.1	5.2	0.95	2007	Abstract	TRUE
+29095276	Medicine (Baltimore)	0.4	2641.27	1.73	0.95	2017	Abstract	TRUE
+22482934	Actas Urol Esp	26.79	25067.1	2.34	0.95	2013	Abstract	TRUE
+23100966	Indian J Hematol Blood Transfus	0.002	3.939	0.001	0.95	2009	Abstract	TRUE
+26995746	Rev Bras Anestesiol	0.001	2.72	0.004	0.95	2016	Abstract	TRUE
+27108825	Braz J Anesthesiol	0.001	2.72	0.004	0.95	2016	Abstract	TRUE
+28464933	Lipids Health Dis	0.431	581	0.73	0.95	2017	Abstract	TRUE
+25894244	Artif Organs	1347	1.567	1926	NA	2015	Abstract	TRUE
+23293975	Eur J Neurol	0.002	15.7	0.12	0.95	2013	Abstract	TRUE
+28662009	Pol Merkur Lekarski	0.018	68	0.251	0.95	2017	Abstract	TRUE
+24356740	Rev Med Chil	0.96	979	0.99	0.95	2013	Abstract	TRUE
+20863499	Atherosclerosis	1.69	1987	2.32	0.95	2010	Abstract	TRUE
+16138281	Rev Neurol	2.4	8167	27.6	0.95	2005	Abstract	TRUE
+25721817	Eur J Cardiothorac Surg	0.928	2222	5.289	0.95	2015	Abstract	TRUE
+25721817	Eur J Cardiothorac Surg	0.904	2019	4.484	0.95	2015	Abstract	TRUE
+19530900	J Endourol	1.14	6750	39.8	0.95	2009	Abstract	TRUE
+27145630	Indian J Exp Biol	1.38	2929	6.19	0.95	2016	Abstract	TRUE
+23453189	Reumatol Clin	0.169	410	0.992	0.95	2013	Abstract	TRUE
+27742329	Transplant Proc	5.347	2785	1.447	0.95	2016	Abstract	TRUE
+25967597	Clin Exp Nephrol	1.002	1008	1.013	0.95	2015	Abstract	TRUE
+29783213	Wiad Lek	0.96	1337	1.86	0.95	2018	Abstract	TRUE
+21695374	J Gastroenterol	1.13	1541	2.1	0.95	2011	Abstract	TRUE
+27465492	Angiology	1.385	1594	1.833	NA	2017	Abstract	TRUE
+23086302	Mol Biol Rep	1.181	1983	3.328	0.95	2013	Abstract	TRUE
+24948445	Gastroenterol Hepatol	1086	3.063	8649	0.95	2014	Abstract	TRUE
+28394519	Urologiia	1.147	3709	11.99	NA	2017	Abstract	TRUE
+23178313	Gynecol Oncol	2.33	6041	15.65	0.95	2013	Abstract	TRUE
+23326166	World J Gastroenterol	0.476	649	0.885	0.95	2013	Abstract	TRUE
+8633593	Am J Gastroenterol	1031	6.857	45606	0.95	1996	Abstract	TRUE
