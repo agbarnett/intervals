@@ -28,7 +28,7 @@ cbPalette = c("#999999", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", 
 # function to round with trailing zeros
 roundz  = function(x, digits=0){formatC( round( x, digits ), format='f', digits=digits)}
 # get the data
-load('data/Georgescu.Wren.RData') # from1_data_from_Georgescu_Wren.R
+load('data/Georgescu.Wren.RData') # from 1_data_from_Georgescu_Wren.R
 complete = filter(complete, is.na(lower)==FALSE) # remove small number with missing lower limit
 ```
 
@@ -240,8 +240,12 @@ jpeg('figures/BothIntervalGWColourNonLog.jpg', width=5.5, height=4, units='in', 
 print(non.log.plot)
 invisible(dev.off())
 # for journal
-postscript('figures/BarnettFig1.eps', width=5.5, height=4, family='Times New Roman')
-print(non.log.plot)
+#postscript('figures/BarnettFig1.eps', width=5.5, height=4, family='Times New Roman')
+#print(non.log.plot)
+#invisible(dev.off())
+# export plot as tiff (change font to Times)
+tiff('figures/BarnettFig1.tif', width=5.5, height=4, units='in', res=600, compression = 'lzw', family='Times New Roman')
+print(bplot)
 invisible(dev.off())
 ```
 
@@ -315,7 +319,7 @@ dplot = ggplot(data=to.plot, aes(x=x, y=height, fill=factor(itype)))+
   geom_col()+
   facet_grid(itype~source, scales='free_y')+
   xlab('Ratio')+
-  ylab('Cumulative distribution')+
+  ylab('Counts')+
   scale_fill_manual('Interval', values=cbPalette[2:3])+
   theme_bw()+
   theme(panel.grid.minor = element_blank(), legend.position = c(0.85, 0.85))
@@ -348,7 +352,7 @@ dplot = ggplot(data=to.plot, aes(x=x, y=height, fill=factor(itype)))+
   geom_col()+
   facet_grid(itype~source, scales='free_y')+
   xlab('Ratio')+
-  ylab('Cumulative distribution')+
+  ylab('Counts')+
   scale_fill_manual('Interval', values=cbPalette[2:3])+
   theme_bw()+
   theme(panel.grid.minor = element_blank(), legend.position = c(0.85, 0.85))
@@ -422,7 +426,11 @@ jpeg('figures/IntervalsTimeGWNonLogAbstract.jpg', width=6.5, height=5, units='in
 print(lyplot.nonlog)
 invisible(dev.off())
 # for journal
-postscript('figures/BarnettFig3.eps', width=6.5, height=5, family='Times New Roman')
+#postscript('figures/BarnettFig3.eps', width=6.5, height=5, family='Times New Roman')
+#print(lyplot.nonlog)
+#invisible(dev.off())
+# export plot as tiff (change font to Times)
+tiff('figures/BarnettFig3.tif', width=6.5, height=5, units='in', res=600, compression = 'lzw', family='Times New Roman')
 print(lyplot.nonlog)
 invisible(dev.off())
 ```
@@ -590,7 +598,10 @@ jpeg('figures/IntervalsSchuemie.jpg', width=5, height=3.5, units='in', res=400, 
 print(uplot)
 invisible(dev.off())
 # export for journal (change name)
-postscript('figures/BarnettFig2.eps', width=5, height=3.5, family='Times New Roman')
+#postscript('figures/BarnettFig2.eps', width=5, height=3.5, family='Times New Roman')
+#print(uplot)
+#invisible(dev.off())
+tiff('figures/BarnettFig2.tif', width=5, height=3.5, units='in', res=600, compression = 'lzw', family='Times New Roman')
 print(uplot)
 invisible(dev.off())
 ```
